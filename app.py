@@ -275,8 +275,8 @@ import pickle
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
-with open("../c964_capstone/model.pkl", "rb") as f:
-    model = pickle.load(f)
+#with open("../c964_capstone/model.pkl", "rb") as f:
+    #model = pickle.load(f)
 
 # Transform data and fit to model
 df = pd.read_csv(url)
