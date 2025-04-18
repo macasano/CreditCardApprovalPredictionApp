@@ -25,7 +25,7 @@ df.head()
 
 
 # Split into X/y and drop column "CreditScore"
-X = df.drop(columns=["Approved", "CreditScore"], errors="ignore")
+X = df.drop(columns=["Approved", "CreditScore","Married"], errors="ignore")
 y = df["Approved"]
 
 # Split into training and test sets
@@ -82,7 +82,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 np.random.seed(52)
 
-X = df.drop(columns=["Approved", "CreditScore"], errors="ignore")
+X = df.drop(columns=["Approved", "CreditScore","Married"], errors="ignore")
 y = df["Approved"]
 
 X = pd.get_dummies(X)
@@ -106,7 +106,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 np.random.seed(52)
 
-X = df.drop(columns=["Approved", "CreditScore"], errors="ignore")
+X = df.drop(columns=["Approved", "CreditScore","Married"], errors="ignore")
 y = df["Approved"]
 
 X = pd.get_dummies(X)
@@ -280,7 +280,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 # Transform data and fit to model
 df = pd.read_csv(url)
-features = df.drop(columns=["Approved", "CreditScore"]).columns.tolist()
+features = df.drop(columns=["Approved", "CreditScore","Married"]).columns.tolist()
 
 categorical_cols = ["Industry", "Ethnicity", "Citizen"]
 
@@ -296,7 +296,7 @@ st.title("Mock Credit Card Application")
 gender = st.selectbox("What is your gender?", ["male", "female"])
 age = st.number_input("How old are you?", min_value=18, max_value=120, value=25)
 debt = st.number_input("How much debt do you have?", min_value=0.0, value=0.0, format="%.2f")
-married = st.selectbox("Are you married?", ["yes", "no"])
+#married = st.selectbox("Are you married?", ["yes", "no"])
 bank_customer = st.selectbox("Are you a bank customer?", ["yes", "no"])
 industry = st.selectbox("What industry do you work in?", [
     "Industrials", "Materials", "CommunicationServices", "Transport", "InformationTechnology",
@@ -326,7 +326,7 @@ if st.button("Submit Application"):
             "Gender": [to_binary(gender)],
             "Age": [age],
             "Debt": [debt],
-            "Married": [to_binary(married)],
+            #"Married": [to_binary(married)],
             "BankCustomer": [to_binary(bank_customer)],
             "Industry": [industry],
             "Ethnicity": [ethnicity],
