@@ -71,8 +71,8 @@ model.score(X_test, y_test)
 # In[9]:
 
 
-with open("../c964_capstone/model.pkl", "wb") as f:
-    pickle.dump(model, f)
+#with open("../c964_capstone/model.pkl", "wb") as f:
+    #pickle.dump(model, f)
 
 # In[10]:
 
